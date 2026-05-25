@@ -1,0 +1,192 @@
+{
+  "schema_version": "1.0",
+  "freeze_date": "20260522",
+  "manifest_built_at_utc": "2026-05-22T09:03:41.521613+00:00",
+  "machine": {
+    "platform": "macOS-26.5-x86_64-i386-64bit",
+    "python": "3.11.15",
+    "hostname": "Haydens-iMac.local"
+  },
+  "tools": {
+    "datasets": "datasets version: 18.28.0",
+    "dataformat": "",
+    "nextclade": "nextclade 3.21.2",
+    "mafft": "",
+    "iqtree": "IQ-TREE version 3.1.2 for MacOS Intel 64-bit built May 17 2026",
+    "treetime": "treetime 0.12.1",
+    "hyphy": "HYPHY 2.5.99(MP) for Darwin on x86_64 x86 SSE4 SIMD zlib (v1.3.2)",
+    "python": "Python 3.11.15",
+    "snakemake": "9.21.0"
+  },
+  "python_packages": {
+    "biopython": "1.87",
+    "dendropy": "5.0.8",
+    "ete3": "3.1.3",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "statsmodels": "0.14.6",
+    "matplotlib": "3.10.9",
+    "seaborn": "0.13.2",
+    "snakemake": "9.21.0",
+    "requests": "2.34.2",
+    "pyyaml": "6.0.3",
+    "tqdm": "4.67.3"
+  },
+  "data_sources": {
+    "ncbi_virus_datasets_cli": {
+      "endpoint": "https://api.ncbi.nlm.nih.gov/datasets/v2/",
+      "command": "datasets download virus genome taxon 'Monkeypox virus' --include genome,annotation",
+      "fetched_at_utc": "2026-05-22T09:03:41.521613+00:00"
+    },
+    "nextstrain_clade_i": {
+      "url": "https://data.nextstrain.org/mpox_clade-I.json",
+      "fetched_at_utc": "2026-05-22T09:03:41.521613+00:00"
+    },
+    "nextstrain_all_clades": {
+      "url": "https://data.nextstrain.org/mpox_all-clades.json",
+      "fetched_at_utc": "2026-05-22T09:03:41.521613+00:00"
+    },
+    "nextclade_dataset_primary": {
+      "name": "nextstrain/mpox/clade-i",
+      "fetched_at_utc": "2026-05-22T09:03:41.521613+00:00"
+    }
+  },
+  "raw_files": [
+    {
+      "path": "data/raw/freeze_20260522/mpox_genomes.fasta",
+      "size_bytes": 2288584422,
+      "sha256": "2a4ee87e44196631cb671b83fe3c0f3d93ab2a7d861f2fed923988be62738042"
+    },
+    {
+      "path": "data/raw/freeze_20260522/mpox_genomes.zip",
+      "size_bytes": 897228761,
+      "sha256": "0d98088bbb3d2ca916077d6c7a89369c5b20ed9d8d0afd28310adb89af266334"
+    },
+    {
+      "path": "data/raw/freeze_20260522/mpox_metadata.tsv",
+      "size_bytes": 1463978,
+      "sha256": "a623ab45f71c33becd33bf2185c02d476c61cdf20515376ceeb22119dc446ab1"
+    },
+    {
+      "path": "data/raw/freeze_20260522/nextclade_dataset",
+      "type": "directory",
+      "file_count": 8,
+      "files": [
+        {
+          "path": "data/raw/freeze_20260522/nextclade_dataset/.snakemake_timestamp",
+          "size_bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "data/raw/freeze_20260522/nextclade_dataset/CHANGELOG.md",
+          "size_bytes": 1489,
+          "sha256": "8c74256d0f1ca9c2f051bd55883f64941f4b7d45a38887371e143f1d5cb4f704"
+        },
+        {
+          "path": "data/raw/freeze_20260522/nextclade_dataset/README.md",
+          "size_bytes": 3392,
+          "sha256": "7e3bd0d5c6ba1b7ca17306cbad7c9170d20e43c086f4e5fd50bc2bce4ba2c2de"
+        },
+        {
+          "path": "data/raw/freeze_20260522/nextclade_dataset/genome_annotation.gff3",
+          "size_bytes": 102128,
+          "sha256": "fc90969a47ad0aeb0e72c23b05ced30c64a33f8f8872d062ea7eeca465e0f6e6"
+        },
+        {
+          "path": "data/raw/freeze_20260522/nextclade_dataset/pathogen.json",
+          "size_bytes": 1823,
+          "sha256": "02b8700b1e7fd93d5d4f580d04e29731dc88c156e2b109f4ca7be9823b5be455"
+        },
+        {
+          "path": "data/raw/freeze_20260522/nextclade_dataset/reference.fasta",
+          "size_bytes": 197035,
+          "sha256": "627f2adc4a044274148f4dfff49f414ba5ad256758ab6a2e818eab69c415b025"
+        },
+        {
+          "path": "data/raw/freeze_20260522/nextclade_dataset/sequences.fasta",
+          "size_bytes": 978438,
+          "sha256": "c4b4c9b8e3bbac6b8d4166ecda89dd4bc0fdd636afa8da072070bda78d9bf07b"
+        },
+        {
+          "path": "data/raw/freeze_20260522/nextclade_dataset/tree.json",
+          "size_bytes": 3100804,
+          "sha256": "fba313976cf421196672c17cf629c494c7cf7ea20b7ecbc62ad64228af44e974"
+        }
+      ]
+    },
+    {
+      "path": "data/raw/freeze_20260522/nextstrain_all_clades.json",
+      "size_bytes": 2339359,
+      "sha256": "43e994203478da03d8de1eb1d6f3743d14a6aafbd8528a5133520557efec5999"
+    },
+    {
+      "path": "data/raw/freeze_20260522/nextstrain_clade_i.json",
+      "size_bytes": 3639221,
+      "sha256": "6ecee9b518a8c84f2f7e394b8f005969c967364dfb02fd816018def875c463f7"
+    }
+  ],
+  "interim_files": [
+    {
+      "path": "data/interim/freeze_20260522/nextclade.tsv",
+      "size_bytes": 299146941,
+      "sha256": "2f64ba57d143c48f82c1c9bf2527de9171e23043982ba56b33b02f8656f6ef23"
+    }
+  ],
+  "processed_files": [
+    {
+      "path": "data/processed/freeze_20260522/corpus.fasta",
+      "size_bytes": 177738023,
+      "sha256": "cda80b865237cabbb2a41222d34cd967a80ba3dc32ba2a22afae53b9998b2bfb"
+    },
+    {
+      "path": "data/processed/freeze_20260522/exclusions.tsv",
+      "size_bytes": 789371,
+      "sha256": "017da53c78e36bd572709a5984af685b2f55ee08557d737ca4ae9ac17e113e28"
+    },
+    {
+      "path": "data/processed/freeze_20260522/filter_summary.json",
+      "size_bytes": 846,
+      "sha256": "365821aac3213d3b890f94db03329e3387abb20df42c0f2cd219e1839eb49485"
+    },
+    {
+      "path": "data/processed/freeze_20260522/metadata.tsv",
+      "size_bytes": 6213598,
+      "sha256": "f0028dfb72a92a25a4064102a071dcb6da7de91b94a255087c8e9e17ef44f420"
+    }
+  ],
+  "filter_summary": {
+    "freeze_input_rows": 12102,
+    "passed": 892,
+    "excluded": 11210,
+    "exclusion_reason_counts": {
+      "clade_excluded": 10030,
+      "nextclade_qc_bad": 9832,
+      "frameshift_qc_bad": 8517,
+      "length_lt_190000": 1379,
+      "n_fraction_gt_0.1": 1116,
+      "date_resolution_unknown_lt_month": 496,
+      "date_resolution_year_lt_month": 370
+    },
+    "surviving_clade_counts": {
+      "Ia": 694,
+      "Ib": 198
+    },
+    "filter_parameters": {
+      "min_length_nt": 190000,
+      "max_n_fraction": 0.1,
+      "max_non_acgtn_fraction": 0.05,
+      "min_date_resolution": "month",
+      "nextclade_qc_bad_excluded": true,
+      "frameshifts_excluded": true
+    },
+    "outputs": {
+      "fasta": "data/processed/freeze_20260522/corpus.fasta",
+      "metadata": "data/processed/freeze_20260522/metadata.tsv",
+      "exclusions": "data/processed/freeze_20260522/exclusions.tsv"
+    }
+  },
+  "preregistration_doi": "10.17605/OSF.IO/CASR2",
+  "osf_project_url": "https://osf.io/gt3vx/",
+  "reference_accession": "NC_063383"
+}

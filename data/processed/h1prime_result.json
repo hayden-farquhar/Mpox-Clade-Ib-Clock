@@ -1,0 +1,20 @@
+{
+  "n_genomes_in_test": 198,
+  "n_genomes_in_corpus": 198,
+  "restrict_clade_prefix": "Ib",
+  "total_snvs": 1127,
+  "apobec3_snvs": 942,
+  "non_apobec3_snvs": 185,
+  "observed_apobec3_fraction": 0.8358473824312334,
+  "wilson_95_lower": 0.8130872836853098,
+  "wilson_95_upper": 0.8563257397719684,
+  "alpha": 0.05,
+  "null_p": 0.7,
+  "alternative": "greater",
+  "exact_binomial_p_value": 4.520980394546193e-26,
+  "h1_supported": true,
+  "h1_supported_rule": "Wilson lower 95% bound (0.8131) > null p0 (0.7)",
+  "emergency_halt_triggered": false,
+  "emergency_halt_threshold": 0.5,
+  "decision": "H1 supported \u2014 proceed"
+}

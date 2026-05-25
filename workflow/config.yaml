@@ -1,0 +1,68 @@
+# Snakemake configuration for the Clade-Ib Clock pipeline.
+#
+# The FREEZE_DATE config option drives which dated freeze directory the workflow
+# writes to. Set it explicitly when invoking Snakemake the first time:
+#
+#   snakemake --config FREEZE_DATE=2026-05-23 freeze_complete
+#
+# After the freeze is taken, leave FREEZE_DATE pinned in this file so downstream
+# steps always reference the same freeze.
+
+# Date of the data freeze (ISO 8601). Set explicitly before running fetch rules.
+# Leave as null until the freeze is taken; downstream rules will refuse to run
+# against an unset freeze.
+FREEZE_DATE: null
+
+# NCBI polite-pool email (for Entrez and Datasets CLI).
+NCBI_EMAIL: hayden.farquhar@icloud.com
+
+# Reference genome used throughout the analysis (clade I reference).
+# All breakpoint coordinates, masked-region coordinates, and reported variant
+# positions are expressed in this coordinate system.
+REFERENCE_ACCESSION: NC_063383
+
+# Mask BED for §5.1 hyper-variable masking. Sourced from upstream
+# nextstrain/mpox commit 1ef5ef2 (master tip at fetch time 2026-05-22T12:14:28Z);
+# see data/raw/freeze_20260522/nextstrain_mask/PROVENANCE.md for the choice
+# rationale and coordinate-frame notes. Set per the §6.4 mask amendment that
+# corrected the ITR-only fallback used at the 2026-05-22 freeze.
+MASK_BED: data/raw/freeze_20260522/nextstrain_mask/CHOSEN_mask.bed
+
+# Nextclade dataset name. The clade-i build is the primary; all-clades is also
+# fetched for cross-clade tree visualisation.
+NEXTCLADE_DATASET_PRIMARY: nextstrain/mpox/clade-i
+NEXTCLADE_DATASET_ALL: nextstrain/mpox/all-clades
+
+# Inclusion / exclusion filters per pre-registration §3.3.
+FILTERS:
+  min_genome_length_nt: 190000
+  max_n_fraction: 0.10
+  max_non_acgtn_fraction: 0.05
+  require_collection_date_resolution: month  # year | month | day
+  exclude_nextclade_qc_bad: true
+  exclude_frameshifts: true
+  min_coverage_x: 30  # applied only when coverage metadata is available
+
+# Cluster eligibility per §3.5.
+CLUSTERS:
+  min_genomes: 10
+  min_date_span_months: 6
+
+# Outgroup panel per §5.4.
+OUTGROUP_PANEL:
+  size: 30
+  strata_years: [2022, 2023, 2024, 2025]   # 2025 stratum captures 2025+
+  min_per_stratum: 1
+  max_per_stratum: 10
+  seed: 42
+
+# Parental reference panels per §5.4.
+PARENTAL_PANELS:
+  max_per_clade: 10
+  seed: 42
+
+# Random seed for all resampling routines (sensitivity analyses also use this).
+SEED: 42
+
+# Compute.
+THREADS: -1  # MAFFT and Nextclade convention: -1 = all available cores

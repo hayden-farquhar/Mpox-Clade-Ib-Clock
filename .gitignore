@@ -1,0 +1,113 @@
+# ============================================================================
+# Mpox-Clade-Ib-Clock — .gitignore
+# ============================================================================
+
+# Credentials and secrets — NEVER commit
+.env
+.env.*
+*.pem
+*.key
+secrets/
+credentials/
+**/portfolio_api_tokens*
+
+# Large data files — regenerate from public sources per data/raw/README.md
+data/raw/*.fasta
+data/raw/*.fa
+data/raw/*.fna
+data/raw/*.zip
+data/raw/*.tar.gz
+data/raw/ncbi_dataset/
+data/processed/corpus.fasta
+data/processed/*.aln
+data/processed/*.alignment.fasta
+data/processed/freeze_*/raw/
+data/processed/freeze_*/alignments/
+data/processed/freeze_*/recomb_3seq/
+data/processed/freeze_*/recomb_gard/
+data/processed/freeze_*/recomb_phipack/
+data/processed/freeze_*/dating/treetime_*/
+data/processed/freeze_*/sensitivity/subsample_*/
+data/processed/freeze_*/sensitivity/temporal_holdout/
+data/processed/freeze_*/iqtree_*/
+data/processed/freeze_*/mafft_*/
+data/processed/freeze_*/nextclade_*/
+*.state
+*.bionj
+*.mldist
+*.iqtree
+*.treefile
+*.ckp.gz
+*.log
+
+# Snakemake build artefacts
+.snakemake/
+logs/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/.venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Conda
+.conda/
+conda-meta/
+miniconda*/
+mamba/
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build / test artefacts
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.cache
+
+# LaTeX / pandoc temp files (in case any output is locally rendered)
+*.aux
+*.fdb_latexmk
+*.fls
+*.out
+*.toc
+*.synctex.gz

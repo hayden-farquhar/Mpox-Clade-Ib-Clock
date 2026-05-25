@@ -1,0 +1,37 @@
+{
+  "L": 23140,
+  "freeze_date": "2026-05-22",
+  "clusters": [
+    {
+      "cluster_id": "Ib-global",
+      "n_genomes": 198,
+      "saturation": {
+        "status": "fit_ok",
+        "t0_hat": "2019-01-09T00:00:00",
+        "t0_hat_ordinal": 737068.4829457949,
+        "lambda_hat_per_site_per_day": 9.988216201945764e-08,
+        "ci95_lo": "2001-09-07T00:00:00",
+        "ci95_hi": "2021-03-15T00:00:00",
+        "n_bootstrap_successful": 2000,
+        "profile_range_LL_units": 3030.7744214729028,
+        "poorly_identified": false
+      },
+      "uncorrected": {
+        "status": "fit_ok",
+        "t0_hat": "2020-09-02T00:00:00",
+        "t0_hat_ordinal": 737670.2560897926,
+        "lambda_hat_per_site_per_day": 1.376280263088171e-07,
+        "ci95_lo": "2004-02-18T00:00:00",
+        "ci95_hi": "2022-01-09T00:00:00",
+        "n_bootstrap_successful": 2000,
+        "profile_range_LL_units": 2918.8739660322344,
+        "poorly_identified": false
+      },
+      "delta_days": 601.7731439976487,
+      "delta_signed_days": -601.7731439976487,
+      "h2_supported_this_cluster": true
+    }
+  ],
+  "h2_max_delta_days": 601.7731439976487,
+  "h2_supported": true
+}

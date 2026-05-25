@@ -1,0 +1,59 @@
+cff-version: 1.2.0
+title: >-
+  Mpox-Clade-Ib-Clock: Reproducibility code for a pre-registered
+  saturation-aware APOBEC3-clock analysis of mpox clade Ib from the
+  public corpus
+message: >-
+  If you use this software or its outputs, please cite the
+  accompanying preprint and the Zenodo deposit of this repository.
+type: software
+authors:
+  - family-names: Farquhar
+    given-names: Hayden
+    orcid: 'https://orcid.org/0009-0002-6226-440X'
+    email: hayden.farquhar@icloud.com
+    affiliation: 'Independent Researcher, Finley, New South Wales, Australia'
+repository-code: 'https://github.com/hayden-farquhar/Mpox-Clade-Ib-Clock'
+url: 'https://github.com/hayden-farquhar/Mpox-Clade-Ib-Clock'
+abstract: >-
+  Reproducibility code for a pre-registered saturation-aware
+  APOBEC3-clock analysis of mpox clade Ib from the public NCBI +
+  Nextstrain corpus at a 2026-05-22 freeze. Combines (a) clade-Ib
+  cluster MRCA dating via saturation-aware Poisson likelihood, (b)
+  a pre-registered three-detector recombination scan (3SEQ + GARD +
+  PhiPack) under a ≥2/3 consensus rule, and (c) three methodological
+  observations including a per-tip Spearman ρ alignment-noise
+  diagnostic and an L-BFGS-B local-minimum-trap finding. Pre-registered
+  at OSF (doi:10.17605/OSF.IO/CASR2) with four §6.4 deviation
+  amendments preserved with server-issued timestamps.
+keywords:
+  - mpox virus
+  - clade Ib
+  - APOBEC3 deamination
+  - molecular clock
+  - recombination detection
+  - saturation correction
+  - pre-registration
+  - reproducibility
+  - phylogenetics
+  - L-BFGS-B
+  - local minimum
+license: MIT
+license-url: 'https://github.com/hayden-farquhar/Mpox-Clade-Ib-Clock/blob/main/LICENSE'
+identifiers:
+  - description: Open Science Framework pre-registration (CASR2)
+    type: doi
+    value: 10.17605/OSF.IO/CASR2
+preferred-citation:
+  type: article
+  title: >-
+    A local-minimum trap in saturation-aware APOBEC3-clock dating:
+    pre-registered analysis of mpox clade Ib from the public corpus
+  authors:
+    - family-names: Farquhar
+      given-names: Hayden
+      orcid: 'https://orcid.org/0009-0002-6226-440X'
+  year: 2026
+  notes: >-
+    Preprint Zenodo DOI minted at first tagged release of this
+    repository. Pre-registered at OSF (doi:10.17605/OSF.IO/CASR2).

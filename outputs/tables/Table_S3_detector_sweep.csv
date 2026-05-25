@@ -1,0 +1,10 @@
+detector,setting,n_candidates,positive_control_in_set
+3SEQ,alpha×0.5,2,False
+3SEQ,alpha×1.0,2,False
+3SEQ,alpha×2.0,2,False
+PhiPack,internal≥1/3,4,True
+PhiPack,internal≥2/3,1,True
+PhiPack,internal≥3/3,0,False
+GARD,ΔAIC×0.75,0,False
+GARD,ΔAIC×1.0,0,False
+GARD,ΔAIC×1.25,0,False

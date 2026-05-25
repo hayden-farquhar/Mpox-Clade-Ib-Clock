@@ -1,0 +1,74 @@
+Mpox-Clade-Ib-Clock — dual licence
+
+This repository combines source code with data and documentation. The two are
+licensed separately as described below.
+
+================================================================================
+CODE (Python scripts, Snakemake workflow rules, environment specifications)
+================================================================================
+
+MIT License
+
+Copyright (c) 2026 Hayden Farquhar
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+DATA, DOCUMENTATION, FIGURES, AND TABLES (everything outside scripts/ and
+workflow/, including README.md, docs/*.md, outputs/figures/*.png,
+outputs/tables/*, data/processed/*)
+================================================================================
+
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Hayden Farquhar
+
+You are free to:
+
+    Share — copy and redistribute the material in any medium or format
+    Adapt — remix, transform, and build upon the material for any purpose,
+            even commercially.
+
+Under the following terms:
+
+    Attribution — You must give appropriate credit, provide a link to the
+                  licence, and indicate if changes were made. You may do so
+                  in any reasonable manner, but not in any way that suggests
+                  the licensor endorses you or your use.
+
+    No additional restrictions — You may not apply legal terms or
+                                  technological measures that legally restrict
+                                  others from doing anything the licence
+                                  permits.
+
+The full text of CC BY 4.0 is available at:
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+================================================================================
+THIRD-PARTY DATA
+================================================================================
+
+Sequence data referenced in this repository (accessions retrieved from NCBI
+Virus) is in the public domain under United States Government work
+provisions.
+
+The Nextstrain mpox dataset (`docs/`-referenced builds and BED masks) is
+licensed by its authors under MIT (code) and CC BY 4.0 (analyses); the
+nextstrain/mpox repository at https://github.com/nextstrain/mpox is the
+canonical source for the masks vendored under §6.4 Amendment 01.

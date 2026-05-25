@@ -1,0 +1,68 @@
+"""
+Clade-Ib Clock — main Snakemake workflow.
+
+Phase 1 (data acquisition + QC) is implemented in workflow/rules/phase1_data.smk.
+Phase 2+ (alignment, dating, recombination, sensitivity) will be added as
+separate rule modules and included here as they are built.
+
+Quick start
+-----------
+
+    # First-time setup: take the data freeze
+    snakemake --cores all --config FREEZE_DATE=$(date +%Y%m%d) freeze_complete
+
+    # Subsequent runs reuse the freeze (FREEZE_DATE pinned in config.yaml after first run)
+    snakemake --cores all qc_complete
+    snakemake --cores all filter_complete
+"""
+
+from pathlib import Path
+import sys
+
+configfile: "workflow/config.yaml"
+
+# --- Validate freeze date ---
+FREEZE_DATE = config.get("FREEZE_DATE")
+if FREEZE_DATE is None:
+    sys.stderr.write(
+        "\nFREEZE_DATE is unset in workflow/config.yaml.\n"
+        "Set it explicitly on the command line for the first fetch:\n"
+        "  snakemake --config FREEZE_DATE=$(date +%Y%m%d) freeze_complete\n"
+        "Then pin it in workflow/config.yaml for subsequent runs.\n\n"
+    )
+    # Allow workflow loading for `snakemake --list-target-rules` etc., but
+    # any rule that needs FREEZE_DATE will fail at the path-expansion step.
+    FREEZE_DATE = "UNSET"
+
+# --- Path conventions ---
+RAW_DIR        = f"data/raw/freeze_{FREEZE_DATE}"
+INTERIM_DIR    = f"data/interim/freeze_{FREEZE_DATE}"
+PROCESSED_DIR  = f"data/processed/freeze_{FREEZE_DATE}"
+
+# --- Top-level convenience targets ---
+rule freeze_complete:
+    """End-to-end Phase 1: fetch, QC, filter, manifest."""
+    input:
+        f"{PROCESSED_DIR}/freeze_manifest.json",
+
+rule qc_complete:
+    """Phase 1 partial: fetch + Nextclade QC, no filter applied yet."""
+    input:
+        f"{INTERIM_DIR}/nextclade.tsv",
+
+rule filter_complete:
+    """Phase 1 partial: filtered corpus produced."""
+    input:
+        f"{PROCESSED_DIR}/corpus.fasta",
+        f"{PROCESSED_DIR}/metadata.tsv",
+        f"{PROCESSED_DIR}/exclusions.tsv",
+
+# --- Rule modules ---
+include: "rules/phase1_data.smk"
+include: "rules/phase2_alignment.smk"
+include: "rules/phase3_apobec.smk"
+
+# Future inclusions (to be implemented):
+# include: "rules/phase4_dating.smk"
+# include: "rules/phase5_recombination.smk"
+# include: "rules/phase6_sensitivity.smk"
