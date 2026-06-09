@@ -90,6 +90,7 @@ For a single-command exploratory reproduction of the headline statistical result
 | `branch_baseline_plot.py` | Figure 1: per-tip branch-quantity APOBEC3 evidence for H1' | 3 |
 | `build_panels.py` | Build the §5.4 outgroup panel and three parental reference panels (stratified random sampling, seed 42) | 4 |
 | `run_phipack_consensus.py` | Per-candidate PhiPack runs for the §5.4 consensus filter (Amendment 03; PhiPack substituted for RDP5) | 4 |
+| `dropcontrol_recomb.py` | Parent-panel sensitivity test: re-run 3SEQ on the 198 clade-Ib children with the positive control OZ375330.1 removed from the candidate-parent panel | 4 |
 | `build_dating_clusters.py` | Define dating clusters per §3.5 + §5.0 step 7 (Nextstrain-lineage mode) | 3B |
 | `fit_saturation_dating.py` | Fit the §5.3 saturation-aware Poisson dating model (primary L-BFGS-B with 25 random starts) | 3B |
 | `treetime_strict_clock_xcheck.py` | §5.3 TreeTime strict-clock cross-check on the dating cluster | 3B |
@@ -118,6 +119,15 @@ For a single-command exploratory reproduction of the headline statistical result
 | `outputs/tables/Table_S2_sensitivity_summary.tsv` | Supplementary Table S2 | Per-replicate sensitivity summary across 11 §5.5 replicates |
 | `outputs/tables/Table_S3_detector_sweep.csv` | Supplementary Table S3 | Detector-parameter sweep summary (§5.5 item 4) |
 | `outputs/tables/Table_S4_lbfgsb_trajectory.csv` | Supplementary Table S4 | L-BFGS-B random-start convergence trajectory (25 starts × 7 columns) for the saturation-Poisson dating fit |
+
+### Recombination parent-panel sensitivity (drop-control test)
+
+| File | Content |
+|---|---|
+| `outputs/apobec3_mask_experiment/run_dropcontrol/dropcontrol_summary.json` | Result of removing the positive control OZ375330.1 from the candidate-parent panel: clade-Ib flag count falls 198/198 → 10/198, with donor composition |
+| `outputs/apobec3_mask_experiment/run_dropcontrol/dropcontrol.3s.rec.csv` | 3SEQ recombinant-triple records for the drop-control run |
+| `outputs/apobec3_mask_experiment/run_dropcontrol/dropcontrol.3s.log` | 3SEQ run log (triples tested, runtime) |
+| `outputs/apobec3_mask_experiment/run_dropcontrol/dropcontrol.3s.pvalHist` | 3SEQ corrected-*P* histogram for the drop-control run |
 
 ### Deposited result JSONs
 

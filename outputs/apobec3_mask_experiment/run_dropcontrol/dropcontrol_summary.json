@@ -1,0 +1,20 @@
+{
+  "test": "drop positive control OZ375330.1 from candidate parents",
+  "baseline_flagged_ib": 198,
+  "baseline_parent": "all 198 = clade-Ia parent + OZ375330.1 (positive control)",
+  "dropcontrol_flagged_ib": 10,
+  "n_ib_children": 198,
+  "control_present_as_parent": false,
+  "top_parent_pairs": [
+    [
+      "OZ254904.1 + JX878407.1",
+      10
+    ]
+  ],
+  "donor_composition": [
+    [
+      "OZ254904.1",
+      10
+    ]
+  ]
+}
