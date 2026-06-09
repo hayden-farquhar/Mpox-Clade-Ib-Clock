@@ -1,7 +1,7 @@
 {
-  "title": "Mpox-Clade-Ib-Clock: Reproducibility code for a pre-registered saturation-aware APOBEC3-clock analysis of mpox clade Ib from the public corpus",
+  "title": "Mpox-Clade-Ib-Clock: Reproducibility code for a two-detector protocol isolating inter-clade recombination in mpox genomic surveillance",
   "upload_type": "software",
-  "description": "Reproducibility code and result artefacts for the pre-registered (OSF Pre-Registration CASR2, doi:10.17605/OSF.IO/CASR2) saturation-aware APOBEC3-clock analysis of mpox clade Ib at the 2026-05-22 public-corpus freeze. The repository contains the Python scripts, Snakemake workflow, environment specifications, four §6.4 deviation amendments, the L-BFGS-B random-start convergence trajectory data underlying the headline local-minimum-trap finding, and the five publication figures plus four supplementary tables. See README.md for the data sources, requirements, and reproduction steps.",
+  "description": "Reproducibility code and result artefacts for the pre-registered (OSF Pre-Registration CASR2, doi:10.17605/OSF.IO/CASR2) recombination-surveillance analysis of mpox clade Ib at the 2026-05-22 public-corpus freeze. The analysis quantifies how a two-detector protocol (3SEQ population scan plus PhiPack confirmation) separates one genuine inter-clade Ib/IIb recombinant from intra-clade Ib, APOBEC3-homoplasy and partial-genome signal. The repository contains the Python scripts, Snakemake workflow, environment specifications, four §6.4 deviation amendments, the APOBEC3-column masking experiment and parent-panel drop-control artefacts, the partial-genome injection test, the saturation-aware APOBEC3-clock calibration (now a short methods note), and the two main-text figures plus seven supplementary tables. See README.md for the data sources, requirements, and reproduction steps.",
   "creators": [
     {
       "name": "Farquhar, Hayden",
@@ -15,17 +15,19 @@
     "mpox virus",
     "MPXV",
     "clade Ib",
+    "recombination detection",
+    "inter-clade recombination",
+    "genomic surveillance",
+    "3SEQ",
+    "PhiPack",
+    "GARD",
+    "partial genomes",
     "APOBEC3 deamination",
     "molecular clock",
     "saturation correction",
-    "recombination detection",
-    "3SEQ",
-    "GARD",
-    "PhiPack",
     "pre-registration",
     "reproducibility",
     "phylogenetics",
-    "L-BFGS-B local minimum",
     "Snakemake"
   ],
   "communities": [
@@ -47,5 +49,5 @@
     }
   ],
   "language": "eng",
-  "version": "1.0.0"
+  "version": "2.0.0"
 }

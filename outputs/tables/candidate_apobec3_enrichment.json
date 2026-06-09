@@ -1,0 +1,23 @@
+{
+  "flag_rate_overall": {
+    "Ia": "0/694",
+    "Ib": "198/198"
+  },
+  "apobec3_fraction_Ib_vs_Ia_all": {
+    "U": 97151.0,
+    "p_greater": 2.879655726669817e-19
+  },
+  "apobec3_fraction_Ib_vs_Ia_complete": {
+    "U": 28927.5,
+    "p_greater": 3.338906698222279e-27
+  },
+  "apobec3_count_Ib_vs_Ia_all": {
+    "U": 134320.5,
+    "p_greater": 3.1081195747453446e-96
+  },
+  "control_accession": "OZ375330.1",
+  "control_apobec3_in_cladeI_counts_file": false,
+  "control_apobec3_fraction": null,
+  "control_apobec3_snvs": null,
+  "control_percentile_within_Ib": null
+}

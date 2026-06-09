@@ -2,7 +2,7 @@
 
 Reproducibility code and result artefacts for:
 
-**A local-minimum trap in saturation-aware APOBEC3-clock dating: pre-registered analysis of mpox clade Ib from the public corpus**
+**Isolating inter-clade recombination in mpox genomic surveillance: a two-detector protocol that separates one genuine event from intra-clade and partial-genome signal**
 
 Hayden Farquhar MBBS MPHTM &nbsp; · &nbsp; Independent Researcher, Finley, New South Wales, Australia &nbsp; · &nbsp; ORCID: [0009-0002-6226-440X](https://orcid.org/0009-0002-6226-440X)
 
@@ -14,9 +14,9 @@ This repository will be archived to Zenodo automatically on first tagged release
 
 ## Overview
 
-This repository contains the full reproducibility chain for a pre-registered analysis of the public mpox virus (MPXV) genome corpus at a 2026-05-22 freeze. The analysis combines (a) a saturation-aware Poisson APOBEC3-clock dating of clade Ib, (b) a pre-registered three-detector recombination scan for inter-clade Ib/IIb recombinants under a ≥2/3 consensus rule, and (c) three methodological observations about counting-protocol calibration, alignment-method sensitivity of branch-quantity counts, and a per-tip Spearman ρ diagnostic for separating alignment-noise from biological signal.
+This repository contains the full reproducibility chain for a pre-registered analysis of the public mpox virus (MPXV) genome corpus at a 2026-05-22 freeze. The headline contribution is a recombination-surveillance result: when a single genome-wide detector (3SEQ) is run over the clade-I corpus it flags every clade-Ib genome (198/198) and no clade-Ia genome, independent of genome completeness, whereas requiring confirmation by a second, independent detector (PhiPack) isolates the one genuine inter-clade Ib/IIb recombinant (the WHO/Pullan positive control OZ375330.1) from the clade-Ib flag pool. The analysis quantifies the specificity that the two-detector rule buys and the partial-genome sensitivity it costs, and supplies two sensitivity tests behind that claim: a within-clade APOBEC3-column / random-column masking experiment, and a parent-panel drop-control test (removing the positive control as a candidate parent collapses the flag count 198/198 → 10/198, showing the over-call magnitude is largely induced by the known recombinant acting as a universal donor).
 
-The headline methodological finding is a **local-minimum trap** in the saturation-Poisson likelihood landscape: the registered L-BFGS-B fitting procedure converged to a local minimum approximately 260 log-likelihood units worse than the global ML minimum identified by a direct (λ, t₀) grid search. The repository includes the L-BFGS-B random-start convergence trajectory data that makes this finding directly reproducible.
+A pre-registered saturation-aware APOBEC3 molecular-clock analysis of clade Ib is reported as a secondary methods note: it recovers the expected APOBEC3 human-transmission signature, dates the clade-Ib MRCA to mid-to-late 2023 (TreeTime strict-clock cross-check, consistent with the Kamituga emergence) with wide uncertainty, and records two transferable cautions for groups applying the O'Toole APOBEC3-clock framework to a newly emerging clade: a counting-protocol/null calibration mismatch, and a **local-minimum trap** in the saturation-Poisson likelihood landscape (the registered L-BFGS-B fit settles ~260 log-likelihood units worse than the global ML optimum found by a direct (λ, t₀) grid search). The L-BFGS-B random-start convergence trajectory data is included so the latter is directly reproducible.
 
 ## Data sources
 
@@ -86,16 +86,23 @@ For a single-command exploratory reproduction of the headline statistical result
 | `count_apobec3.py` | Count APOBEC3-context SNVs per genome relative to the clade-I reference (tip-vs-reference protocol; §5.2) | 3 |
 | `build_branch_apobec3_counts.py` | Build per-tip branch-quantity APOBEC3 SNV counts for the H1' test (Amendment 02) | 3 |
 | `test_h1.py` | H1 / H1' one-sided exact-binomial test against the IIb-calibrated null *p*₀ = 0.70 | 3 |
-| `baseline_plot.py` | Figure 2: tip-vs-reference APOBEC3 SNV accumulation, clade Ia vs Ib | 3 |
-| `branch_baseline_plot.py` | Figure 1: per-tip branch-quantity APOBEC3 evidence for H1' | 3 |
+| `baseline_plot.py` | Supplementary Figure S1: tip-vs-reference APOBEC3 SNV accumulation, clade Ia vs Ib (`snv_by_date_v2.png`) | 3 |
+| `branch_baseline_plot.py` | Diagnostic: per-tip branch-quantity APOBEC3 evidence for H1' (`branch_snv_by_date.png`) | 3 |
 | `build_panels.py` | Build the §5.4 outgroup panel and three parental reference panels (stratified random sampling, seed 42) | 4 |
 | `run_phipack_consensus.py` | Per-candidate PhiPack runs for the §5.4 consensus filter (Amendment 03; PhiPack substituted for RDP5) | 4 |
-| `dropcontrol_recomb.py` | Parent-panel sensitivity test: re-run 3SEQ on the 198 clade-Ib children with the positive control OZ375330.1 removed from the candidate-parent panel | 4 |
+| `dropcontrol_recomb.py` | Parent-panel sensitivity test: re-run 3SEQ on the 198 clade-Ib children with the positive control OZ375330.1 removed from the candidate-parent panel (198/198 → 10/198) | 4 |
+| `apobec3_mask_recomb.py` | Within-clade APOBEC3-context vs random-column vs baseline masking experiment: isolates whether APOBEC3 homoplasy (not clade per se) drives the 3SEQ flag (Table S6/S7) | 4 |
+| `random_mask_distribution.py` | Multi-seed (n=10) distribution for the matched random-column masking control, so the control is reported as a median and range rather than one draw (Table S7) | 4 |
+| `candidate_apobec3_enrichment.py` | Characterise the 3SEQ over-call by clade and genome completeness, and the APOBEC3 load of the flagged Ib panel vs the unflagged Ia background | 4 |
+| `injection_partial_recombinant.py` | Partial-genome sensitivity: progressively truncate the confirmed inter-clade recombinant and re-run both detectors to test what the two-detector rule discards on incomplete assemblies | 4 |
+| `plot_breakpoint_concordance.py` | Figure 1: cross-detector breakpoint concordance for the positive control (3SEQ primary/alternative triplets + GARD two-breakpoint model) | 4 |
+| `plot_overcall_partial_genomes.py` | Figure 2: genome length vs PhiPack Phi-permutation *P* for every 3SEQ candidate + candidate genome-length distribution | 4 |
 | `build_dating_clusters.py` | Define dating clusters per §3.5 + §5.0 step 7 (Nextstrain-lineage mode) | 3B |
 | `fit_saturation_dating.py` | Fit the §5.3 saturation-aware Poisson dating model (primary L-BFGS-B with 25 random starts) | 3B |
+| `refit_dating_global.py` | Global-ML re-fit of the saturation-Poisson MRCA model via a dense (t₀, log₁₀λ) grid + L-BFGS-B polish, with within-basin bootstrap — locates the global optimum the registered fit's random starts miss | 3B |
 | `treetime_strict_clock_xcheck.py` | §5.3 TreeTime strict-clock cross-check on the dating cluster | 3B |
 | `lbfgsb_trajectory.py` | §6.4 Amendment 04: capture the L-BFGS-B convergence trajectory of the 25 random starts | 3B |
-| `plot_likelihood_landscape.py` | Figure 4: regenerate the (λ, t₀) likelihood-landscape figure with the registered primary + global ML minimum + TreeTime cross-check annotated | 3B |
+| `plot_likelihood_landscape.py` | Diagnostic: (λ, t₀) likelihood-landscape figure with the registered primary + global ML minimum + TreeTime cross-check annotated (`likelihood_landscape.png`) | 3B |
 | `sensitivity_runner.py` | §5.5 sensitivity analyses (items 2 random subsampling, 3 temporal hold-out, 6 outgroup-composition perturbation) | 5 |
 | `sensitivity_detector_sweep.py` | §5.5 item 4: detector-parameter sweep (3SEQ alpha-scale, PhiPack internal-agree, GARD ΔAIC) | 5 |
 
@@ -103,31 +110,40 @@ For a single-command exploratory reproduction of the headline statistical result
 
 ### Figures (publication, 300 dpi)
 
-| File | Paper reference | What it shows |
-|---|---|---|
-| `outputs/figures/Figure_1_branch_snv_by_date.png` | Figure 1 | Per-tip branch-quantity APOBEC3 evidence for H1' |
-| `outputs/figures/Figure_2_snv_by_date.png` | Figure 2 | Tip-vs-reference APOBEC3 SNV accumulation, clade Ia vs Ib |
-| `outputs/figures/Figure_3_breakpoint_concordance.png` | Figure 3 | Cross-detector breakpoint concordance for the positive control OZ375330.1 |
-| `outputs/figures/Figure_4_likelihood_landscape.png` | Figure 4 | Saturation-Poisson (λ, t₀) likelihood landscape with primary fit + global ML + TreeTime annotated |
-| `outputs/figures/Figure_5_sensitivity_bimodality.png` | Figure 5 | Saturation-Poisson MRCA bimodality across the 11 §5.5 sensitivity replicates |
+| File | Paper reference | What it shows | Generated by |
+|---|---|---|---|
+| `outputs/figures/breakpoint_concordance.png` | Figure 1 | Cross-detector breakpoint concordance for the positive control OZ375330.1 | `plot_breakpoint_concordance.py` |
+| `outputs/figures/overcall_partial_genomes.png` | Figure 2 | Genome length vs PhiPack Phi-permutation *P* for every 3SEQ candidate + candidate length distribution | `plot_overcall_partial_genomes.py` |
+| `outputs/figures/snv_by_date_v2.png` | Supplementary Figure S1 | Tip-vs-reference APOBEC3 SNV accumulation, clade Ia vs Ib | `baseline_plot.py` |
+| `outputs/figures/branch_snv_by_date.png` | Diagnostic (methods note) | Per-tip branch-quantity APOBEC3 evidence for H1' | `branch_baseline_plot.py` |
+| `outputs/figures/likelihood_landscape.png` | Diagnostic (methods note) | Saturation-Poisson (λ, t₀) likelihood landscape with primary fit + global ML + TreeTime annotated | `plot_likelihood_landscape.py` |
+| `outputs/figures/sensitivity_mrca_bimodality.png` | Diagnostic (methods note) | Saturation-Poisson MRCA bimodality across the §5.5 sensitivity replicates | `sensitivity_runner.py` |
 
 ### Supplementary tables
 
-| File | Paper reference | Content |
+| Paper reference | Backing file(s) | Content |
 |---|---|---|
-| `outputs/tables/Table_S1_candidate_annotation.tsv` | Supplementary Table S1 | Per-candidate annotation of the 202 sequences flagged by 3SEQ as recombinant children |
-| `outputs/tables/Table_S2_sensitivity_summary.tsv` | Supplementary Table S2 | Per-replicate sensitivity summary across 11 §5.5 replicates |
-| `outputs/tables/Table_S3_detector_sweep.csv` | Supplementary Table S3 | Detector-parameter sweep summary (§5.5 item 4) |
-| `outputs/tables/Table_S4_lbfgsb_trajectory.csv` | Supplementary Table S4 | L-BFGS-B random-start convergence trajectory (25 starts × 7 columns) for the saturation-Poisson dating fit |
+| Supplementary Table S1 | `outputs/tables/Table_S1_candidate_annotation.tsv` | Per-candidate annotation of the sequences flagged by 3SEQ as recombinant children |
+| Supplementary Table S2 | `outputs/tables/Table_S2_sensitivity_summary.tsv` | MRCA fit by subsample (the saturation-versus-uncorrected difference as a basin artefact) |
+| Supplementary Table S3 | `outputs/tables/Table_S3_detector_sweep.csv` | Detector-parameter sweep summary (§5.5 item 4) |
+| Supplementary Table S4 | `outputs/tables/Table_S4_lbfgsb_trajectory.csv` | L-BFGS-B random-start convergence trajectory for the saturation-Poisson dating fit |
+| Supplementary Table S5 | `outputs/tables/injection_partial_recombinant.tsv`, `.json` | Partial-genome injection test: detector retention versus retained genome length |
+| Supplementary Table S6 | `outputs/tables/candidate_apobec3_enrichment.csv`, `.json`, `outputs/tables/flag_rate_by_clade_completeness.csv` | Single-detector flag rate by clade and completeness, with APOBEC3 load |
+| Supplementary Table S7 | `outputs/apobec3_mask_experiment/results_summary.json`, `random_distribution_results.json` | APOBEC3-column masking experiment (the triplet signal is not specifically APOBEC3-driven) |
+| Main-text Table 1 | `outputs/tables/baseline_v2.csv` | Baseline 3SEQ flag table underlying the headline 198/198 clade-Ib flag rate |
 
-### Recombination parent-panel sensitivity (drop-control test)
+### APOBEC3-column masking experiment and parent-panel drop-control (Supplementary Table S7 + sensitivity)
+
+The masking experiment runs 3SEQ under three conditions that differ only in which alignment columns are masked (baseline, APOBEC3-context homoplasy columns, and a matched random-column control over ten seeds), plus a parent-panel drop-control. The large per-condition input alignments (`aln_*.fasta`, ~174 MB each) are **not** committed; they are regenerated by `apobec3_mask_recomb.py` from the freeze alignment. The small 3SEQ run artefacts and summaries are deposited:
 
 | File | Content |
 |---|---|
-| `outputs/apobec3_mask_experiment/run_dropcontrol/dropcontrol_summary.json` | Result of removing the positive control OZ375330.1 from the candidate-parent panel: clade-Ib flag count falls 198/198 → 10/198, with donor composition |
-| `outputs/apobec3_mask_experiment/run_dropcontrol/dropcontrol.3s.rec.csv` | 3SEQ recombinant-triple records for the drop-control run |
-| `outputs/apobec3_mask_experiment/run_dropcontrol/dropcontrol.3s.log` | 3SEQ run log (triples tested, runtime) |
-| `outputs/apobec3_mask_experiment/run_dropcontrol/dropcontrol.3s.pvalHist` | 3SEQ corrected-*P* histogram for the drop-control run |
+| `outputs/apobec3_mask_experiment/results_summary.json` | Baseline vs APOBEC3-masked vs single-seed random-mask flag counts |
+| `outputs/apobec3_mask_experiment/random_distribution_results.json` | Ten-seed random-column control distribution (n=10; median 119/198, range 64–197, mean 126.4, SD 54.0) |
+| `outputs/apobec3_mask_experiment/run_baseline/`, `run_apobec3/`, `run_random{,_seed1..9}/` | 3SEQ logs, rec.csv, longRec, pvalHist for every masking condition/seed |
+| `outputs/apobec3_mask_experiment/per_ib_child_minp.tsv` | Per clade-Ib child minimum corrected *P* across conditions |
+| `outputs/apobec3_mask_experiment/run_dropcontrol/dropcontrol_summary.json` | Parent-panel drop-control: removing OZ375330.1 as a candidate parent collapses the flag count 198/198 → 10/198, with donor composition |
+| `outputs/apobec3_mask_experiment/run_dropcontrol/dropcontrol.3s.{rec.csv,log,pvalHist}` | 3SEQ artefacts for the drop-control run |
 
 ### Deposited result JSONs
 
@@ -174,9 +190,10 @@ Each amendment is also deposited at OSF under the parent project [gt3vx](https:/
 If you use this code or any of its outputs, please cite both the preprint and the Zenodo deposit of this repository. After Zenodo mints the DOI on first tagged release, the canonical citation is:
 
 ```
-Farquhar, H. (2026). Mpox-Clade-Ib-Clock: Reproducibility code for "A local-minimum
-trap in saturation-aware APOBEC3-clock dating: pre-registered analysis of mpox
-clade Ib from the public corpus". Zenodo. https://doi.org/[Zenodo DOI on release]
+Farquhar, H. (2026). Mpox-Clade-Ib-Clock: Reproducibility code for "Isolating
+inter-clade recombination in mpox genomic surveillance: a two-detector protocol
+that separates one genuine event from intra-clade and partial-genome signal".
+Zenodo. https://doi.org/[Zenodo DOI on release]
 ```
 
 A `CITATION.cff` file is included at the repository root; GitHub will surface a "Cite this repository" button once the repo is public.

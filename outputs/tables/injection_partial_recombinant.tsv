@@ -1,0 +1,12 @@
+retain_frac	retained_nongap_bp	threeseq_flag	threeseq_min_corr_p	threeseq_n_triples	phi_perm_p	nss_p	maxchi_p	phipack_n_sig	phipack_call	two_detector_consensus
+1.0	181320	True	9.753159e-35	1	0.0	0.0	0.0	3	True	True
+0.9	172190	True	2.499936e-41	1	0.0	0.0	0.0	3	True	True
+0.8	153654	True	1.408069e-46	1	0.0	0.0	0.0	3	True	True
+0.7	135383	True	1.777879e-45	1	0.0	0.0	0.0	3	True	True
+0.6	115903	True	2.229788e-39	1	0.0	0.0	0.0	3	True	True
+0.5	96800	True	9.177709e-28	1	0.019	0.0	0.0	3	True	True
+0.4	78074	True	8.840842e-14	1	0.164	0.0	0.0	2	True	True
+0.3	58780	True	7.955676e-20	1	0.531	0.002	0.0	2	True	True
+0.2	39188	True	3.481531e-19	1	0.775	0.007	0.0	2	True	True
+0.15	29442	True	3.121052e-15	1	0.715	0.01	0.0	2	True	True
+0.1	19595	True	7.095998e-09	1	0.813	0.089	0.012	1	False	False

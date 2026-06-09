@@ -1,0 +1,23 @@
+{
+  "n_sequences": 926,
+  "n_columns": 196967,
+  "n_ib_children": 198,
+  "apobec3_columns": {
+    "total": 845,
+    "tc": 425,
+    "ga": 420
+  },
+  "random_control_columns": 845,
+  "seed": 20260608,
+  "flagged_ib": {
+    "baseline": 198,
+    "apobec3": 198,
+    "random": 114
+  },
+  "within_clade_correlation": {
+    "n": 198,
+    "spearman_rho": -0.8288974155846511,
+    "spearman_p": 2.4516791995384533e-51,
+    "note": "x=apobec3_fraction, y=min corrected 3SEQ p (baseline); negative rho => higher APOBEC3 load tracks stronger (smaller-p) recombination signal within clade Ib"
+  }
+}

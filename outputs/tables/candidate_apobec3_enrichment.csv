@@ -1,0 +1,5 @@
+group,n,median,q1,q3
+Ib_flagged_all,198,0.1005,0.068,0.1304
+Ib_flagged_complete,94,0.119,0.1013,0.1527
+Ia_unflagged_all,694,0.0755,0.06,0.0943
+Ia_unflagged_complete,358,0.0755,0.0612,0.098

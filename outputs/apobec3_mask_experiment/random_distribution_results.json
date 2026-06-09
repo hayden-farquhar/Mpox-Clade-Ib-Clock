@@ -1,0 +1,28 @@
+{
+  "clade_ib_total": 198,
+  "baseline_flagged": 198,
+  "apobec3_flagged": 198,
+  "random_mask_k_columns": 845,
+  "random_seeds": {
+    "anchor_20260608": 114,
+    "seed1": 124,
+    "seed2": 196,
+    "seed3": 197,
+    "seed4": 109,
+    "seed5": 129,
+    "seed6": 69,
+    "seed7": 197,
+    "seed8": 64,
+    "seed9": 65
+  },
+  "random_summary": {
+    "n": 10,
+    "min": 64,
+    "max": 197,
+    "mean": 126.4,
+    "median": 119.0,
+    "sd": 54.0
+  },
+  "source": "re-derived from outputs/apobec3_mask_experiment/run_random{,_seedN}/*.3s.rec.csv vs metadata.tsv clade==Ib",
+  "generated": "2026-06-09"
+}

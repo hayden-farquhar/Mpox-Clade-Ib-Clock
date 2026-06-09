@@ -1,0 +1,23 @@
+{
+  "control": "OZ375330.1",
+  "alignment_len": 196967,
+  "panel_size": 30,
+  "panel_composition": {
+    "IIb": "10",
+    "Ib": "10",
+    "Ia": "10"
+  },
+  "full_length_phipack_call": true,
+  "full_length_threeseq_flag": true,
+  "discordance_first_retain": 0.1,
+  "discordance_first_bp": 19595,
+  "discordance_levels": [
+    {
+      "retain": 0.1,
+      "retained_bp": 19595,
+      "phi_perm_p": 0.813,
+      "nss_p": 0.089,
+      "maxchi_p": 0.012
+    }
+  ]
+}

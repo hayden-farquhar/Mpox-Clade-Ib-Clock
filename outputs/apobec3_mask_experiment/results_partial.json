@@ -1,0 +1,11 @@
+{
+  "baseline": {
+    "n_flagged": 198
+  },
+  "apobec3": {
+    "n_flagged": 198
+  },
+  "random": {
+    "n_flagged": 114
+  }
+}

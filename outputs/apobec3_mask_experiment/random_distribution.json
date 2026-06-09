@@ -1,0 +1,55 @@
+{
+  "seeds": {
+    "20260608": {
+      "n_flagged": 114
+    },
+    "1": {
+      "n_flagged": 124
+    },
+    "2": {
+      "n_flagged": 196
+    },
+    "3": {
+      "n_flagged": 197
+    },
+    "4": {
+      "n_flagged": 109
+    },
+    "5": {
+      "n_flagged": 129
+    },
+    "6": {
+      "n_flagged": 69
+    },
+    "7": {
+      "n_flagged": 197
+    },
+    "8": {
+      "n_flagged": 0
+    },
+    "9": {
+      "n_flagged": 65
+    }
+  },
+  "note": "per-seed clade-Ib children retained under matched random-column masking (845 cols -> N)",
+  "summary": {
+    "n_seeds": 10,
+    "counts": [
+      0,
+      65,
+      69,
+      109,
+      114,
+      124,
+      129,
+      196,
+      197,
+      197
+    ],
+    "mean": 120.0,
+    "sd": 64.90505886806257,
+    "min": 0,
+    "max": 197,
+    "median": 119.0
+  }
+}
